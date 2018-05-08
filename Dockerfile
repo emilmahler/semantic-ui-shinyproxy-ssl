@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
     libssl1.0.0
 
 # basic shiny functionality
-RUN R -e "install.packages(c('shiny','shiny.semantic'), repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages(c('shiny','devtools'), repos='https://cloud.r-project.org/')"
+RUN R -e "devtools::install_github("emilmahler/shiny.semantic",ref = "develop")"
 
 # copy the app to the image
 RUN mkdir /root/app
