@@ -1,0 +1,10 @@
+rm(list=ls())
+Sys.setenv(LANG = "en")
+Sys.setenv(TZ='UTC')
+# .libPaths("C:/R-3.5.0/library")
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+source('global.R', encoding="utf-8")
+source('server.R', encoding="utf-8")
+source('ui.R', encoding="utf-8")
+shinyApp(ui, server, options = list(launch.browser = TRUE))
